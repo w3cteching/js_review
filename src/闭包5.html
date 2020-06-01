@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>通过闭包改变页面字号</h2>
+    <div class="btns">
+        <button>小号</button>
+        <button>中号</button>
+        <button>大号</button>
+    </div>
+    <p class="box"> 特点：函数嵌套函数，并且内部函数通过return返回到外部，外部可以访问内部函数的变量</p>
+</body>
+<script>
+function setSize(size) {
+   return function() {
+    // document.body.style.fontSize=size+'px'
+    document.querySelector('.box').style.fontSize=size+'px';
+   }
+}
+
+var size12=setSize(12);
+var size40=setSize(30)
+var size50=setSize(50);
+
+ function init() {
+     var btns=document.querySelectorAll('.btns>button')
+     //dom0事件
+     btns[0].onclick=size12
+     btns[1].onclick=size40
+     btns[2].onclick=size50
+ }
+
+ init();
+
+
+
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环递增--面试经典题</title>
+</head>
+<body>
+    <h2>循环递增--面试经典题</h2>
+</body>
+<script>
+  //要求每隔1秒打印1,2,3,.....10
+
+  //setTimeout是异步执行的，异步队列
+
+/*
+  for(var i=1;i<=10;i++) {
+     
+     (function(j) {
+        setTimeout(function() {
+            console.log('i=j的值：',j)
+        },2000*j)
+     })(i)
+
+  }
+
+  console.log('最后打印：',i)
+
+  */
+
+
+
+   for(let i=1;i<=10;i++) {
+    
+        setTimeout(function() {
+            console.log('i的值：',i)
+        },1000*i)
+   
+
+  }
+
+  //console.log('最后打印：',i)
+
+
+
+</script>
+</html>

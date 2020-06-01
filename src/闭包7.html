@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环闭包举例</title>
+</head>
+<body>
+  <div class="forms">
+    <p class="help">请移步光标选择你要输入的文本框</p>
+    <p>Email:<input type="text" id="email" name="email"></p>
+    <p>name: <input type="text" id="name" name="name"></p>
+    <p>age: <input type="text" id="age" name="age"></p>
+  </div>
+</body>
+<script>
+
+   function init() {
+       //定义输入框提示的文字
+       var txts=[
+           {id:'email',tips:'请输入你的邮箱'},
+           {id:'name',tips:'请输入你的名子'},
+           {id:'age',tips:'请输入你的年龄'},
+       ]
+
+    for(var i=0;i<txts.length;i++) {
+        var item=txts[i];
+         document.getElementById(item.id).onfocus=(function(item) {
+
+          return  function() {
+                    //将显示的提示文字在另一个函数中渲染
+                    showText(item.tips)
+                 }
+
+         })(item)
+    }
+
+   }
+
+   function showText(tips) {
+       document.querySelector('.help').innerHTML=tips;
+   }
+
+   init()
+</script>
+</html>

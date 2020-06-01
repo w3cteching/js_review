@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS中的this</title>
+</head>
+<body>
+    <h2>JS中的this--在构造函数内</h2>
+</body>
+<script>
+   function Fn(name='张三',age=0) {
+       this.name=name
+       this.age=age
+       //指向实现化的对象,分别：this===f1  //true
+       console.log('this:',this)
+   }
+
+  var f1=new Fn('盖威',20)
+  var f2=new Fn('姚杰',18)
+
+  console.log('f1:',f1.name)
+  console.log('f1:',f1.age)
+
+  console.log('f2:',f2.name)
+  console.log('f3:',f2.age)
+</script>
+</html>

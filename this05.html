@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>定时器中的this</h2>
+</body>
+<script>
+  var value='React'
+
+    var obj={
+        value:'vuejs',
+        getValue:function() {
+           // var _this=this;
+            setTimeout(()=>{
+                console.log(this)
+                console.log(this.value)
+            },2000)
+        }
+    }
+
+    obj.getValue()
+</script>
+</html>

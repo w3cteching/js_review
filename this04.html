@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h2>JS中的this--在对象内</h2>
+</body>
+<script>
+    var value='React'
+
+    var obj={
+        value:'vuejs',
+        getValue:function() {
+            //this
+            //console.log('this===obj:',this===obj)
+            var that=this;
+            function getValue2() {
+                console.log('obj内部this:',this.value)
+            }
+
+            getValue2()
+
+            return this.value;
+        }
+    }
+
+    obj.getValue()
+
+</script>
+</html>

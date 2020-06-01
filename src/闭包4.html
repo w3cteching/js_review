@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闭包4-计数器</title>
+</head>
+<body>
+    <h2>闭包4-计数器</h2>
+</body>
+<script>
+//函数表达式
+
+//功能：递增，递减，获取递增或递减之后的值
+var Counter=function() {
+    //私有变量
+    var num=0;
+    //私有函数
+    var changeValue=function(n) {
+
+        return num+=n;
+
+    }
+
+
+   return {
+       //增
+       increment:function() {
+            changeValue(1)
+       },
+       //减
+       decrement:function() {
+            changeValue(-1)
+       },
+       //获取值
+       getValue:function() {
+           return num;
+       }
+   }
+}
+
+
+var c1=Counter();
+
+c1.increment()
+c1.increment()
+c1.increment()
+c1.increment()
+console.log('c1的值：',c1.getValue())
+
+var c2=Counter();
+c2.increment()
+c2.increment()
+console.log('c2:',c2.getValue())
+
+
+
+
+</script>
+</html>

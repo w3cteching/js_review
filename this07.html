@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>谁调用this，this就指向谁？？？？？？难道这句话真的正确吗？？？？？</h2>
+</body>
+<script>
+   var value='React';
+
+   var obj={
+       value:'Vuejs',
+       getValue:function() {
+           console.log(this===window)
+           console.log(this.value);
+       }
+   }
+
+  // obj.getValue();   // this===obj
+ // console.log((obj.getValue)())   //this===obj
+
+ //console.log((obj.getValue=obj.getValue)())  //this===window
+ //console.log((false || obj.getValue)())   //this===window
+ //console.log((false,obj.getValue)())    //this===window
+
+
+
+</script>
+</html>
