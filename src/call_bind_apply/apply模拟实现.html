@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>apply模拟实现</h2>
+</body>
+<script>
+
+//用JS原生模拟call
+
+Function.prototype.apply2=function(context,arr) {
+
+   var ctx=context || window;
+
+   //将函数临时添加到对象上 
+   ctx.fn=this;  //其中this代码要调用的函数
+
+  //对是否有arr进行处理
+  if(!arr) {
+      ctx.fn();
+  }else {
+
+    //处理参数接收问题，arguments
+    var args=[];
+    for(var i=1,len=arr.length;i<len;i++) {
+        //将获取的每个参数压入数组中
+        args.push('arguments['+i+']');  
+    }
+
+    //最后得到： args[arguments[0],arguments[1],arguments[2]]
+
+    //执行对象上的函数，eval,用于执行字符串代码的
+    var result=eval('ctx.fn('+args+')')  //ctx.fn(args)
+
+  }
+   //最后删除掉这个函数
+   delete ctx.fn
+
+  return result;
+   
+}
+
+ var msg='React'
+ var obj={
+    msg:'vue.js'
+}
+ 
+
+function getMsg(v) {
+    console.log(v[0])
+    console.log(v[1])
+    console.log(v[2])
+    return {
+        msg:this.msg,
+        v:v[0],
+        v1:v[1],
+        v2:v[2]
+    }
+}
+
+var result=getMsg.apply2(obj,['微信小程序','Angular','Flutter'])
+console.log('result::::',result)
+
+
+</script>
+</html>

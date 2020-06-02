@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>call改变this指向</h2>
+</body>
+<script>
+   var msg='React'
+   var obj={
+       msg:'vue.js'
+   }
+
+   function getMsg(v,v2) {
+       console.log(v,v2)
+       return this.msg;
+   }
+
+  //var result=getMsg.call(obj,'微信小程序','Angular');
+  // var result=getMsg.apply(obj,['微信小程序111','Angular222']);
+   var result=getMsg.bind(obj)('微信小程序','Angular')
+
+  console.log('result:',result)
+</script>
+</html>

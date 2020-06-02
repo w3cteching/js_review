@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>new一个函数的执行过程</h2>
+</body>
+<script>
+
+function Person(name='无名',age=0) {
+
+   this.name=name
+   this.age=age
+
+   //自动返回return p1
+
+  
+}
+
+Person.prototype.play=function() {
+
+   return `${this.name}喜欢打游戏`
+
+}
+
+
+
+function new1() {
+   // 创建一个临时对象
+   var obj={};
+  //获取构造函数赋值给Constructor
+  var Constructor=[].shift.apply(arguments)
+  //然后arguments中的值只能除第一个值之外的参数了
+  //将obj的原型指向Constructor的原型,目的可以让实例化对象找到构造器原型上的方法
+  obj.__proto__=Constructor.prototype
+  
+  //让Constructor属性作用于obj上，从而可以操作this.xxx的实例属性
+  Constructor.apply(obj,arguments)
+
+  //返回obj
+  return obj;
+}
+
+
+var p1=new1(Person,'jack',20);
+
+console.log(p1.name)
+console.log(p1.age)
+console.log(p1.play())
+
+
+
+</script>
+</html>

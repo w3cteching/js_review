@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+          text-align:center;
+      }
+        .box {
+            width:80%;
+            height:400px;
+            border:1px solid #f00;
+            margin:0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>节流代码实现--定时器实现</h2>
+    <div class="box"></div>
+</body>
+<script>
+  var index=0;
+  var box=document.querySelector('.box');
+  
+  function getAction() {
+    //ajax。。。。
+     index++;
+     box.innerHTML=index;
+  }
+
+  getAction();
+
+  box.onmousemove=throttle(getAction,2000)
+
+ //节流函数
+  /*
+  * { function }func:代表对哪个高频函数进行节流
+  * { number } wait:代表节流的时间间隔
+  * 节流有两种实现方式：时间戳方式，定时器方式
+  */
+  function throttle(func,wait) {
+     var timeout;
+     var args;
+     var _this;
+     
+      return function() {
+          _this=this;
+          args=arguments;
+        if(!timeout) {
+            timeout=setTimeout(function() {
+                func.apply(_this,args)
+                timeout=null;
+
+            },wait)
+            
+        }
+
+        
+      }
+  }
+
+  
+ 
+
+ 
+
+</script>
+</html>
