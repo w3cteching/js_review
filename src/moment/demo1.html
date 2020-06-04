@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.0/animate.css" rel="stylesheet">
+</head>
+<body>
+    <h2>moment日期处理函数库</h2>
+</body>
+<script src="./js/moment.min.js"></script>
+<script>
+moment.locale('zh-cn')
+//var d=new Date().getTime();
+var result=moment('2016-03-12 13:40:00').format('yyyy年MM月DD日,h:mm:ss')
+console.log(result)
+
+</script>
+</html>

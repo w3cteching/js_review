@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class='title'>dom操作--事件绑定</h2>
+    <button class="btn">事件绑定</button>
+</body>
+<script>
+   //先获取dom
+    var btn=document.querySelector('.btn');
+   //再给dom绑定事件
+   btn.onclick=function(e) {
+     console.log(111)
+   }
+
+</script>
+</html>

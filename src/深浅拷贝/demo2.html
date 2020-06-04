@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>lodash库实现的深拷贝</h2>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+<script>
+   var arr=[
+        {id:1001,name:'ipad2',price:2300},
+        {id:1002,name:'vivo',price:2350},
+        {id:1003,name:'oppor',price:1300}
+    ]
+   var result=_.cloneDeep(arr);
+  
+
+   result[2].name='nokia'
+
+    console.log('arr:',arr)
+   console.log('result:',result)
+</script>
+</html>

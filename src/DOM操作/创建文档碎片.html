@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>创建文档碎片</h2>
+    <ul class="list">
+    
+    </ul>
+</body>
+<script>
+    //需求：创建100个li,并添加到ul中
+
+   
+/*
+    for(var i=0;i<1000000;i++) {
+        var newLi=document.createElement('li');
+        newLi.textContent=`项目${i+1}`  //添加文本:textContent,添加html: .innerHTML
+        oul.appendChild(newLi)
+    }
+*/
+
+    //先创建li，然后插入到ul中
+   // var oul=document.querySelector('.list')
+   var oul=document.getElementsByClassName('list')[0]
+    //先创建一个文档碎片
+    var fragment=document.createDocumentFragment();
+   for(var i=0;i<100;i++) {
+        var newLi=document.createElement('li');
+        newLi.textContent=`项目${i+1}` 
+        fragment.appendChild(newLi)  //已经将100个li添加到fragment上了
+
+   }
+
+   oul.appendChild(fragment);
+
+
+
+   
+</script>
+</html>

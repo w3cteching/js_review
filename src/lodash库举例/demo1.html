@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+          text-align:center;
+          
+      }
+        .box {
+            width:80%;
+            height:400px;
+            border:1px solid #f00;
+            margin:0 auto;
+            font-size:100px;
+        }
+    </style>
+</head>
+<body>
+    <h2>防抖代码实现</h2>
+    <div class="box"></div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+<script>
+  var index=0;
+  var box=document.querySelector('.box');
+
+  
+  function getAction(e) {
+      console.log('this:',this)
+      console.log('e:',e)
+    //ajax。。。。
+     index++;
+     box.innerHTML=index;
+  }
+
+  getAction();
+
+  //box.onmousemove=debounce(getAction,2000)
+//box.onmousemove=_.debounce(getAction,2000,{leading:true})
+box.onmousemove=_.throttle(getAction,2000,{leading:false})
+
+</script>
+</html>

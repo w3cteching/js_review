@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>用递归去实现深拷贝</h2>
+</body>
+<script>
+
+function deepCopy(arr) {
+
+    var newObj;
+    //初始化
+    newObj= arr instanceof Array ? [] : {}
+
+    //遍历检测数组或对象元素
+    for(var key in arr) {  //arr[0]
+        // 只遍历对象自身的属性
+        if(arr.hasOwnProperty(key)) {
+           newObj[key] = typeof arr[key] === 'object' ? deepCopy(arr[key]) : arr[key]
+        }
+    }
+
+  return newObj;
+
+}
+
+var arr=[
+    {id:1001,name:'ipad2',price:2300},
+    {id:1002,name:'vivo',price:2350},
+    {id:1003,name:'oppor',price:1300}
+]
+
+var result=deepCopy(arr);
+
+result[1].id=1111;
+console.log('arr:',arr)
+console.log('result:',result)
+
+</script>
+</html>

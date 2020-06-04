@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .list {
+          border:1px solid #f00;
+      }
+    </style>
+</head>
+<body>
+ <h2>万能的window.getComputedStyle和getBoundingClientRect</h2>
+
+    <ul class='list'>
+        <li>列表1</li>
+        <li class='active'>列表2</li>
+        <li>列表3</li>
+    </ul>
+</body>
+<script>
+/*
+  css样式分三级：
+   1.开发者写的样式
+   2.浏览器默认样式
+   3.用户样式
+*/
+
+
+ var title=document.querySelector('body')
+ var oul=document.querySelector('ul')
+ var style = window.getComputedStyle(title, null);
+ console.dir(style.getPropertyValue('height'))
+ console.dir(style.getPropertyValue('font-size'))
+
+ var rectObj=oul.getBoundingClientRect()
+
+ console.log('rectObj:',rectObj)
+
+
+
+ {
+	var oBtn = document.getElementsByTagName("input");
+	var oDiv = document.getElementById("div1");
+	var oAtt = ["width","height","background","display","display"];
+	var oVal = ["200px","200px","red","none","block"];
+
+	for (var i = 0; i < oBtn.length; i++)
+	{
+		oBtn[i].index = i;
+		oBtn[i].onclick = function ()
+		{
+        
+			this.index == oBtn.length - 1 && (oDiv.style.cssText = "");
+			changeStyle(oDiv, oAtt[this.index], oVal[this.index])
+		}	
+	}
+};
+
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>创建节点,克隆，删除，替换</h2>
+
+    <ul class="list">
+        <li class='first'>首页
+            <ul>
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+            </ul>
+        </li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+
+    <button class='btn'>替换，删除最后一个节点</button>
+</body>
+<script>
+    var title=document.querySelector('h2');
+    //需求：创建一个div，并添加文字，追加到页面上
+   // var odiv=document.createElement('div');
+    //var otext=document.createTextNode('1906A')
+
+    //将文本追加到div上  appendChild
+   // odiv.appendChild(otext);
+
+    //再将div追加到body上
+   // document.body.appendChild(odiv)
+  // document.body.insertBefore(odiv,title)
+
+    //var oul=document.querySelector('.list')
+    //var firstLi=oul.querySelectorAll('li')[0].cloneNode(true);
+
+   // oul.appendChild(firstLi);
+
+   var btn=document.querySelector('.btn');
+
+   var oul=document.querySelector('.list')
+   //var allLis=oul.querySelectorAll('li')
+   var allLis=oul.children
+    
+    btn.addEventListener('click',function() {
+        var li=document.createElement('li')
+        li.textContent='hello，马上回京啦'
+      //  oul.removeChild(allLis[allLis.length-1])
+       let lastLi=allLis[allLis.length-1];
+      oul.replaceChild(li,lastLi)
+
+    },false)
+    
+    
+
+</script>
+</html>

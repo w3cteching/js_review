@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件冒泡和捕获</title>
+</head>
+<body>
+   <div class="box1">
+        box1
+        <div class="box2">
+            box2
+            <div class="box3">
+                box3内容
+            </div>
+        </div>
+   </div> 
+</body>
+<script>
+   var box1=document.querySelector('.box1');
+   var box2=document.querySelector('.box2');
+   var box3=document.querySelector('.box3');
+
+   box3.addEventListener('click',fn3,true);  //false代表冒泡，true代表捕获
+   box2.addEventListener('click',fn2,true);  //false代表冒泡，true代表捕获
+   box1.addEventListener('click',fn1,true);  //false代表冒泡，true代表捕获
+   document.body.addEventListener('click',fn4,true);  //false代表冒泡，true代表捕获
+
+   function fn3(e) {
+       e.stopPropagation();  //w3c标准   IE:e.cancelBubble=true
+
+       console.log('触发的是box3元素')
+   }
+
+   function fn2(e) {
+        e.stopPropagation(); 
+       console.log('触发的是box2元素')
+   }
+
+   function fn1(e) {
+        e.stopPropagation(); 
+       console.log('触发的是box1元素')
+   }
+
+    function fn4(e) {
+         e.stopPropagation(); 
+       console.log('触发的是body元素')
+   }
+
+</script>
+</html>

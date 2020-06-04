@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>点击li，添加背景色或者是下标</h2>
+    <ul class="list">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+</body>
+<script>
+//获取ul
+var oul=document.querySelector('.list')
+var olis=oul.querySelectorAll('li')  //或者getElementsByTagName()
+ 
+ /*
+  for(var i=0,len=olis.length;i<len;i++) {
+    olis[i].onclick=function(e) {
+          e.target.style.background="#f00"
+       }
+  }
+*/
+  
+  oul.onclick=function(e) {
+     e.target.style.background="#f00"
+  }
+
+
+</script>
+</html>

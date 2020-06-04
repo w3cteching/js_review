@@ -280,7 +280,7 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
      ## 一、call,apply,bind
 
      ```
-主要用于改变this指向的
+     主要用于改变this指向的
      1.call格式：函数名.call(上下文环境，参数)
      
       说明：
@@ -317,19 +317,19 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
        
      面试官问：call,apply,bind区别？自己总结
      ```
+
      
-     
-     
+
      二、说一下call和apply的实现原理？
+
      
-     
-     
+
        ```
      问到xxxx原理？其实是在问你实现的底层，再本质一点，是再问是否会造这个轮子！！！！！
        ```
-     
+
      > 记住：函数由Function构造器实例化
-     
+
      > 平时创建一个函数：
      >
      > 1.函数声明
@@ -349,9 +349,9 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
      > 3. 用new的方式创建一个函数
      >
      >     var Fn=new Function('函数参数','函数执行体'')
+
      
-     
-     
+
      ```
      eval:可以将内部的字符串解析成代码或表达式去执行
      例如：
@@ -361,7 +361,7 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
      
      参考官方文档：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval
      ```
-     
+
      ```
      call实现原理，模拟call的实现：
      
@@ -395,7 +395,7 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
         
      }
      ```
-     
+
      ```
      
      apply实现原理，模拟apply实现：
@@ -432,15 +432,15 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
         
      }
      ```
+
      
-     
-     
+
      三、防抖和节流实现原理？
-     
+
        
-     
+
         1. 防抖和节流解决什么问题？
-     
+
            ```
            解决页面高频触发或向后端连续请求的优化逻辑问题 例如：搜索，滚动加载
            
@@ -449,11 +449,11 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
            浏览器事件：onresize（改变窗口尺寸）,onscroll(滚动事件)
            
            ```
-     
+
            
-     
+
      2. 防抖：
-     
+
          ```
          生活比喻：比如电脑屏保，电梯的开关
          防抖：即在固定n秒间隔内，不会执行代码逻辑，除非n秒内有事件触发，则会再延长n秒，直到n秒没有触发的事件，则在n秒后执行代码逻辑
@@ -483,18 +483,18 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
            }
          
          ```
-     
+
          
-     
+
      3. 节流
-     
+
          ```
          生活比喻：每天有规律的时间学习，吃饭，跑步,不会因为杂事儿所打乱，类似闹钟是有规律的
          节流：固定的时间节点，执行固定的代码逻辑
          ```
-     
+
          > **时间戳实现节流**
-     
+
          ```
          
           //节流函数
@@ -523,9 +523,9 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
                }
            }
          ```
-     
+
          > **定时器实现节流**
-     
+
          ```
          
           //节流函数
@@ -555,27 +555,27 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
                }
            }
          ```
-     
+
          
-     
+
          语言组织：
-     
+
             用一句话告诉我：功能？，性能？
-     
+
          
-     
+
             功能：就是代表能用！
-     
+
             性能：就是代表好用！
-     
+
          
-     
+
          
-     
+
      四、new的实例原理：
+
      
-     
-     
+
        ```
      面试官可能会这样问：
       1.new一个构造函数时，中间发生了什么？
@@ -608,21 +608,458 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
      }
      
        ```
+
+     
+
+     ## 一、第三方函数工具库
+
+     1. lodash:
+
+       语法：_.方法名()
+
+       使用方法：
+
+        ```
+     第一种：通过script标签去使用
+     <script src=".js/lodash.min.js"></script>
+     
+     第二种：通过npm结合脚手架去使用
+     npm install lodash -D
+     
+     var _ = require('lodash');
+     或
+     import _ from 'lodash'
+     
+     然后再vue组件中就可以使用了
+     _.debounce()
+        ```
+
+     
+
+       
+
+     例如：
+
+     ```
+     数组扁平化：_.flattenDepth(数组名,扁平化的层数),
+     数组排序：_.orderBy(数组名,[排序字段]，[排序方式desc,asc]),
+     数组去重.uniq(要去重的数组名)
+     ```
+
+     2. moment库
+
+     ```
+     主要用于处理日期和时间的
+     
+     github官方仓库：https://github.com/moment/moment
+     官网：https://momentjs.com/
+     
+     使用：npm install moment --save
+     ```
+
+     3.css动画库：animate.css
+
+     
+
+     ```
+     npmp install animate.css -D
+     
+     官方github仓库：https://github.com/animate-css/animate.css
+      
+     ```
+
+     
+
+     css动画在vue中使用
+
+     1.纯css3动画实现：你平时写的css动画
+
+       主要通过vue内置的transition组件来实现
+
+      ```
+     <transition name='动画名'>
+        //要做动画的组件
+     </transition>
+     
+     有四个状态：
+     
+     准备进入：.动画名-enter {}
+     
+     离开后：.动画名-leave-to {}
+     
+     进入过程中：.动画名-enter-active {}
+     
+     离开过程中：动画名-leave-active{}
+      ```
+
+     
+
+     2.用第三方动画库实现：animate.css
+
+     ```
+     第一步：安装animate.css
+     npm install animate.css -S
+     
+     第二步：在main.js中引入
+     // 引入animate.css
+     import 'animate.css/animate.css'
+     
+     第三步：在要应用的页面或组件中使用
+     
+      <transition
+            enter-active-class="animate__animated animate__heartBeat"
+            leave-active-class="animate__animated animate__backOutDown"
+       >
+           <router-view></router-view>
+      </transition>
+      
+      说明：
+        enter-active-class:进入过程中的动画类
+        leave-active-class:离开过程中的动画类
+     ```
+
+     
+
+     ## 二、javaScript深浅拷贝
+
+     ```
+     何为基本数据类型
+     
+       基本类型的同仁，是复制的数据内容（基本数据number,string,boolean,null,undefined,symbol）
+       
+     何为对象数据类型（或称引用类型）
+       对象之间的赋值，是复制的地址
+       
+     浅拷贝：只是复制外层的地址，没有继续往内部找到基本类型数据
+     深拷贝：递归的复制内部数据走到找到基本类型数据才复制出来
+     
+     如何实现一个深拷贝呢？
+     1.SON.parse(JSON.stringify(arr))
+       
+       优点：简单，缺点：不能复制函数
+       
+     2.用递归去实现深拷贝
+     
+     //只遍历对象自身的属性，不遍历原型链的属性 hasOwnProperty() boolean
+     
+     
+     function deepCopy(arr) {
+     
+         var newObj;
+         //初始化
+         newObj= arr instanceof Array ? [] : {}
+     
+         //遍历检测数组或对象元素
+         for(var key in arr) {  //arr[0]
+             // 只遍历对象自身的属性
+             if(arr.hasOwnProperty(key)) {
+                newObj[key] = typeof arr[key] === 'object' ? deepCopy(arr[key]) : arr[key]
+             }
+         }
+     
+       return newObj;
+     
+     }
+     
+     知乎上关于深拷贝的理解：
+     https://www.zhihu.com/question/23031215
+     
+     //深复制，要想达到深复制就需要用递归
+     	  function deepCopy(o,c){
+     	    var c = c || {}
+     	    for(var i in o){
+     	    if(typeof o[i] === 'object'){
+     	  	   	   	  //要考虑深复制问题了
+                           if(o[i].constructor === Array){
+                         	//这是数组
+                         	c[i] =[]
+                         }else{
+                         	//这是对象
+                         	c[i] = {}
+                         }
+                         deepCopy(o[i],c[i])
+     	  	   	   }else{
+     	  	   	   	 c[i] = o[i]
+     	  	   	   }
+     	  	   }
+     	  	   return c
+     	  }
+     
+     
+     3. 通过loadsh库去实现
+      var arr=[
+             {id:1001,name:'ipad2',price:2300},
+             {id:1002,name:'vivo',price:2350},
+             {id:1003,name:'oppor',price:1300}
+         ]
+         
+        var result=_.cloneDeep(arr);
+        result[2].name='nokia'
+        console.log('arr:',arr)
+        console.log('result:',result)
+     ```
+
+     
+
+     
+
+     ##  三、javaScript中的DOM操作方法
+
+     ```
+     现在是数据驱动，组件化，模块化，虚拟DOM的天下！！！！
+     
+     但上面的前提是你得在某个框架（Angular(2009年),React（2013.4）,vuejs（2014.3）,Flutter（）2018.12....）下才能开始使用~~~
+     
+     频繁操作DOM,会引起浏览器的重绘和回流，降低页面性能
+     
+     DOM操作方法：
+     
+     jQuery:操作dom神器  $('')
+     
+     JS原生事件绑定：
+     
+        1.html绑定事件
+        
+        例如：<button class="btn" onclick="alert(1111)">事件绑定</button>
+        
+        2.dom0级绑定事件
+         //先获取dom
+         var btn=document.querySelector('.btn');
+          //再给dom绑定事件
+          btn.onclick=function(e) {
+            console.log(e.target)
+          }
+          
+          dom0移除： dom元素.onclick=null
+          
+          优点：兼容性好
+          缺点：不支持同一事件的多次绑定，只支持事件冒泡
+        
+        3.dom2级绑定事件【主流绑定事件的方式，特别是适合原生移动端的JS】
+        
+        //先获取dom
+         var btn=document.querySelector('.btn');
+         //再给dom绑定dom2级事件
+         //dom元素.addEventListener('事件名',事件监听函数,是否冒泡或捕获)
+         btn.addEventListener('click',func,false)
+     
+         function func() {
+             console.log(1111)
+         }
+         
+          优点：支持同一事件的多次绑定,除了事件冒泡外，还支持事件捕获
+          缺点：兼容性一般，不过在移动端无压力
+          
+          检测js,css兼容浏览器的网站：https://caniuse.com/
+          
+          移除事件： btn.removeEventListener('事件类型',要移除的事件名,false)
+     
+     
+     dom操作方法：增，删，改，查
+     
+     
+     ```
+
+     
+
+     -------
+
+     ## 一、事件流
+
+       ```
+     事件流：事件触发的顺序
+     事件流包括三个阶段：捕获阶段，目标阶段，冒泡阶段
+     
+     冒泡阶段：事件由最具体元素触发，向上传播的过程
+     目标阶段：就是你最终触发的那个元素（即目标元素）
+     捕获阶段：事件由不具体的元素向下查找，直到找到你触发的那个元素，与事件冒泡相反
+     
+     冒泡排序：是数组排序算法 注意和事件冒泡是不同
+     
+     阻止冒泡： e.stopPropagation();   //同时会阻止冒泡和捕获
      
      
      
+     事件代理（事件委托）：实现原理就是事件冒泡
+     
+     问题：通过循环遍历，给每一个li都绑定事件，添加事件监听函数，性能有问题
+     
+     解决方案：通过事件代理的方式来解决
+     
+     通过事件对象来获取事件目标：e.target
+     
+     JS原生实现事件代理：在父级元素上绑定事件处理函数，通过e.target来获取触发的目标来做后续操作
+     
+     jQuery如何实现事件代理：
+        //jQuery事件代理如何实现
+            $('.list').on('click','li',function() {
+                console.log($(this))
+                $(this).addClass('bg')
+            })
+     
+     
+     jQuery搞明白：把在线的JS原生小案例，写在jQuery版本
+     
+     JS版本
+     JQuery版本
+     
+     
+     阻止默认行为: e.preventDefault();
+        
+        默认行为：元素本身带的一个特性 例如：超链接点击就会中转，form通过submit可提交，右键菜单
      
      
      
+       ```
+
      
+
+     ## 二、DOM常用操作方法
+
+     > 节点类型: nodeType
+     >
+     > 1. ELEMENT===1:元素节点
+     >
+     > 2. attribute:属性节点
+     > 3. text===3:文本节点
+     > 4. comment:注释节点
+     > 5. document:文档节点 代表整体页面
+     > 6. .....
+     >
+     > 节点类型官方文档：https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType
+
      
+
+     > 通常面试官会这样问：给我说几个常用的dom操作方法？？？？
+
+     1. 创建（增）
+
+         ```
+         1.createElement() 创建标签
+         2.createTextNode() 创建文本
+         3.createDocumentFragment() 创建文档碎片,所有的操作是在内存中进行的
+          
+           为了避免重绘和回流：咱们插入dom时可采用createDocumentFragment，最后一次性的再添加到页面的dom中
+           
+             //先创建li，然后插入到ul中
+             var oul=document.querySelector('.list')
+             //先创建一个文档碎片
+             var fragment=document.createDocumentFragment();
+            for(var i=0;i<100;i++) {
+                 var newLi=document.createElement('li');
+                 newLi.textContent=`项目${i+1}` 
+                 fragment.appendChild(newLi)  //已经将100个li添加到fragment上了
+         
+            }
+         
+            oul.appendChild(fragment);
+         
+         
+         4.cloneNode(true)  克隆  //添加true代表深度克隆，包括子节点的所有内容也可以克隆过来
+         
+           
+         
+         例如：
+          //需求：创建一个div，并添加文字，追加到页面上
+          var odiv=document.createElement('div');
+          var otext=document.createTextNode('1906A')
+         
+         //将文本追加到div上  appendChild
+         odiv.appendChild(otext);
+         
+         //再将div追加到body上
+         document.body.appendChild(odiv)
+         ```
+
+     2. 修改:
+
+         ```
+         父节点.appendChild(子节点)  尾追加
+         父节点.insertBefore(新节点,参考节点) 前追加
+         父级节点.removeChild(要删除的子级节点) 移除节点
+         replaceChild(新节点，旧节点)  替换节点
+         ```
+
+         
+
+     3. 查询
+
+         ```
+         getElementById()  获取id ，如果页面上有多个相同id，只返回第一个
+         getElementsByTagName() 获取标签名 返回是类数组
+         getElementsByName()  获取表单中name名称  返回类数组
+         getElementsByClassName  只能获取class名称  返回类数组
+         querySelector  只获取匹配的第一个css选择器  //特别适合移动端
+         querySelectorAll  获取匹配的css选择器类数组 //特别适合移动端
+         
+         //封装一个$
+         function $(selector) {
+             return typeof selector==='string' ? document.querySelector(selector) : selector
+         }
+         
+         
+         //难怪人有说有了querySelector，可以放弃jQuery了！！！！！！
+         ```
+
+     3. 节点关系
+
+         ```
+         parentNode:找父节点
+         parentElement：找父元素
+         
+         previousSibling：找前一个兄弟节点
+         previousElementSibling：找前一个兄弟元素
+         nextSibling：找后一个兄弟节点
+         nextElementSibling：找后一个元素节点
+         
+         childNodes:属性，即包括元素节点，也包括文本节点
+         children:属性 只获取直接子级元素，不获取文本节点（元素类型===1）
+         firstNode：找第一个节点
+         lastNode：找最后一个节点
+         hasChildNodes：用于判断是否有子元素
+         ```
+
+         5. 属性型
+
+         ```
+         setAttribute
+         getAttribute
+         
+         例如：
+         $('a').getAttribute('title')
+         $('a').setAttribute('title','1906A')
+         ```
+
+         6. 样式型
+
+             ```
+             window.getComputedStyle：获取css样式
+             
+             
+             
+             getBoundingClientRect  获取dom的位置信息
+             
+             参考文档：https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect
+             
+             https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle
+             ```
+
+             
+
+     ```
+     参考链接：https://www.cnblogs.com/lrzw32/p/5008913.html
+     ```
+
      
+
      
+
      
+
      
+
      
-     
-     
+
      
 
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <h2>万能的querySelector和querySelectorAll</h2>
+
+    <ul class='list'>
+        <li>列表1</li>
+        <li class='active'>列表2</li>
+        <li>列表3</li>
+    </ul>
+
+    <a href="http://www.baidu.com" title="百度">百度</a>
+</body>
+<script src='./utils/tools.js'></script>
+<script>
+//只能获取ul的class为list的子级元素li类名是active
+//jQuery  $('.list  .active')
+
+//难怪人有说有了querySelector，可以放弃jQuery了！！！！！！
+
+//document.querySelector('ul.list>li.active').style.background="#f00"
+
+$('ul.list>li.active').style.background="#00f"
+
+$('.active').nextElementSibling.style.border='1px solid #f00'
+
+console.log($('a').getAttribute('href'))
+console.log($('a').getAttribute('title'))
+
+$('a').setAttribute('title','1906A')
+
+</script>
+<script>
+
+
+
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      a:hover {
+          background:#f00;
+      }
+
+      .list {
+          display:none;
+          position:absolute;
+          border:1px solid #f00;
+      }
+    </style>
+</head>
+<body>
+<!--注释内容-->
+    <ul class="links">
+        <li> <a href="https://www.baidu.com">百度</a> </li>
+        <li><a href="http://www.sohu.com">搜狐</a></li>
+        <li><a href="https://www.qq.com">腾讯</a></li>
+        <li><a href="#">测试链接</a></li>
+    </ul>
+
+    <ul class="list">
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+</body>
+<script>
+    //获取所有a标签
+    var links=document.querySelectorAll('a')
+    var list=document.querySelector('.list')
+    
+
+    console.log(links[0])
+    links[0].onclick=function(e) {
+       e.preventDefault() //阻止默认行为  咱们的vue中简写为@click.prevent
+       console.log('百度')
+    }
+
+   
+   document.oncontextmenu=function(e) {
+       console.log('oncontextmenu',e)
+       e.preventDefault();
+
+       //获取当前点击位置的坐标x,y
+       let _x=e.clientX;
+       let _y=e.clientY;
+
+       list.style.left=_x+'px';
+       list.style.top=_y+'px';
+       list.style.display='block'
+
+   }
+
+   document.onclick=function() {
+       list.style.display='none'
+   }
+
+</script>
+</html>

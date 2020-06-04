@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class='title'>dom2操作--事件绑定</h2>
+    <button class="btn">事件绑定</button>
+    <button class=remove>移除事件</button>
+</body>
+<script>
+   //先获取dom
+    var btn=document.querySelector('.btn');
+    var remove=document.querySelector('.remove');
+   //再给dom绑定dom2级事件
+    //dom元素.addEventListener('事件名',事件监听函数,是否冒泡或捕获)
+    btn.addEventListener('click',func,false)
+
+    function func() {
+        console.log(1111)
+    }
+
+    remove.addEventListener('click',function() {
+
+        btn.removeEventListener('click',func,false)
+
+    },false)
+
+</script>
+</html>
