@@ -1095,10 +1095,12 @@ vue-simplemde：编辑markdown
      
 
      > 后台管理github地址：https://github.com/PanJiaChen/vue-element-admin/tree/i18n
+     >
+     > 后台管理文档：https://panjiachen.github.io/vue-element-admin-site/zh/
      
      ```
      git clone https://github.com/PanJiaChen/vue-element-admin/tree/i18n
-     cd 进入克隆的目录
+cd 进入克隆的目录
      npm install 安装包
 npm run dev
      ```
@@ -1124,7 +1126,7 @@ npm run dev
      
 
      
-
+     
      
      
      
