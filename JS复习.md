@@ -1034,32 +1034,101 @@ JS三大部分：EcmaScript(JS核心),DOM,BOM
 
              ```
              window.getComputedStyle：获取css样式
-             
-             
-             
              getBoundingClientRect  获取dom的位置信息
              
              参考文档：https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect
              
              https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle
              ```
-
              
-
-     ```
+             
+     
+```
      参考链接：https://www.cnblogs.com/lrzw32/p/5008913.html
+```
+     
+     
+     
+## 产品形态：
+     
+### 一、App：
+     
+> anrdoid：java开发，ios：Object-c或swift,统称都叫Native开发
+     
+​    App开发：
+     
+​    优点：性能好
+     
+​    缺点：开发成本高（要招一个android工程师，ios工程师）
+     
+## 二、pc网站：
+     
+1. C端：customer针对最终用户   例如：京东：https://www.jd.com/
+     2. B端：例如：后台管理系统，主要用于集团或企业内部管理平台
+
+     ```
+图表：echarts
+     
+ ui框架：Element ui  85%以上公司都用它来开发 后台管理系统
+     
+vue-simplemde：编辑markdown
+     
+富文本编辑与element ui集成
+     
+头像上传
+     
+导出excel
+     
+导出压缩文件
+     
+多语言支持（国际化）
+     
+登录：
+     
+表单编辑
+     
+表格 分页
      ```
 
      
 
      
 
+     > 后台管理github地址：https://github.com/PanJiaChen/vue-element-admin/tree/i18n
      
+     ```
+     git clone https://github.com/PanJiaChen/vue-element-admin/tree/i18n
+     cd 进入克隆的目录
+     npm install 安装包
+npm run dev
+     ```
+
+     ## 三、微信公众号（H5）：是基于微信的H5页面+微信内置的api
+
+     ## 四、小程序:基于微信运行的应用
+
+     ## 五、基于H5移动端网站（M站）
+
+     https://m.jd.com/
+
+     ## 六、flutter:可以做多端混合开发   google开发 的
+
+      web开发：
+
+      优点：跨平台（android,ios,windows....），开发成本低
+
+      缺点：性能差一些
 
      
 
      
 
+     
+
+     
+     
+     
+     
      
 
 
